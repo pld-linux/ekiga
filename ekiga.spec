@@ -24,27 +24,27 @@ BuildRequires:	openldap-devel >= 2.3.0
 BuildRequires:	pwlib-devel = 1.9.2
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
+Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
-Requires(post,postun):  scrollkeeper
 Requires:	pwlib-sound
 Obsoletes:	gnomemeeting
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Ekiga is a IP Telephony and Video Conferencing application which 
+Ekiga is a IP Telephony and Video Conferencing application which
 complies to the SIP and H.323 protocols. It can connect to a variety
-of other SIP and H323 applications including specialized hardware. 
+of other SIP and H323 applications including specialized hardware.
 Ekiga can work with or without a webcam, and is able to create pure
-audio communications or traditionnal audio+video communications. 
-Ekiga was fomerly known as GnomeMeeting.
+audio communications or traditionnal audio+video communications. Ekiga
+was fomerly known as GnomeMeeting.
 
 %description -l pl
-Ekiga jest programem przeznaczonym do wideokonferencji oraz telefonii 
-internetowej zgdodnej z protoko³ami SIP oraz H.323. Mo¿e ³±czyæ siê 
-z ró¿nymi aplikacjiami SIP lub H.323 w³±czaj±c w to specjalizowane 
-urz±dzenia. Program Ekiga mo¿e pracowaæ z kamer± internetow±, zestawiaæ
-same po³±czenia g³osowe jak równie¿ tradycyjne z d¼wiêkiem i obrazem.
-Ekiga by³a poprzednio znana jako GnomeMeeting.
+Ekiga jest programem przeznaczonym do wideokonferencji oraz telefonii
+internetowej zgdodnej z protoko³ami SIP oraz H.323. Mo¿e ³±czyæ siê z
+ró¿nymi aplikacjiami SIP lub H.323 w³±czaj±c w to specjalizowane
+urz±dzenia. Program Ekiga mo¿e pracowaæ z kamer± internetow±,
+zestawiaæ same po³±czenia g³osowe jak równie¿ tradycyjne z d¼wiêkiem i
+obrazem. Ekiga by³a poprzednio znana jako GnomeMeeting.
 
 %prep
 %setup -q
