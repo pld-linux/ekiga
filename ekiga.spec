@@ -40,8 +40,8 @@ was fomerly known as GnomeMeeting.
 
 %description -l pl
 Ekiga jest programem przeznaczonym do wideokonferencji oraz telefonii
-internetowej zgdodnej z protoko³ami SIP oraz H.323. Mo¿e ³±czyæ siê z
-ró¿nymi aplikacjiami SIP lub H.323 w³±czaj±c w to specjalizowane
+internetowej zgodnej z protoko³ami SIP oraz H.323. Mo¿e ³±czyæ siê z
+ró¿nymi aplikacjami SIP lub H.323 w³±czaj±c w to specjalizowane
 urz±dzenia. Program Ekiga mo¿e pracowaæ z kamer± internetow±,
 zestawiaæ same po³±czenia g³osowe jak równie¿ tradycyjne z d¼wiêkiem i
 obrazem. Ekiga by³a poprzednio znana jako GnomeMeeting.
