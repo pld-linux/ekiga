@@ -7,6 +7,7 @@ License:	GPL
 Group:		Applications/Communications
 Source0:	http://www.ekiga.org/downloads/sources/%{name}-%{version}.tar.gz
 # Source0-md5:	178844551b65ff33ef44a5d481539af7
+Patch0:		%{name}-desktop.patch
 URL:		http://www.ekiga.org/
 BuildRequires:	GConf2-devel >= 2.12.0
 BuildRequires:	SDL-devel
@@ -48,6 +49,7 @@ obrazem. Ekiga by³a poprzednio znana jako GnomeMeeting.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__gnome_doc_common}
