@@ -1,0 +1,9 @@
+diff -aurN ekiga-1.99.0.orig/ekiga.desktop.in.in ekiga-1.99.0/ekiga.desktop.in.in
+--- ekiga-1.99.0.orig/ekiga.desktop.in.in	2006-01-10 22:20:32.000000000 +0100
++++ ekiga-1.99.0/ekiga.desktop.in.in	2006-02-12 21:27:58.904314648 +0100
+@@ -9,4 +9,4 @@
+ Icon=@PACKAGE_NAME@.png
+ Terminal=false
+ Type=Application
+-Categories=GNOME;Application;Network;
++Categories=GTK;GNOME;Network;InstantMessaging;
