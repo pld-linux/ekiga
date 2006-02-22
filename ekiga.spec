@@ -25,6 +25,9 @@ BuildRequires:	openldap-devel >= 2.3.0
 BuildRequires:	pwlib-devel = 1.9.3
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
+BuildRequires:	gnome-doc-utils
+BuildRequires:	avahi-devel
+BuildRequires:	avahi-glib-devel
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
 Requires:	pwlib-sound
