@@ -13,21 +13,23 @@ BuildRequires:	GConf2-devel >= 2.12.0
 BuildRequires:	SDL-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	evolution-data-server-devel
+BuildRequires:	avahi-devel >= 0.6
+BuildRequires:	avahi-glib-devel >= 0.6
+BuildRequires:	dbus-glib-devel >= 0.36
+BuildRequires:	evolution-data-server-devel >= 1.1.3
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.8.0
+BuildRequires:	gnome-doc-utils
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libgnome-devel >= 2.12.0
 BuildRequires:	libgnomeui-devel >= 2.12.0
 BuildRequires:	libtool
 BuildRequires:	opal-devel = 2.1.3
 BuildRequires:	openldap-devel >= 2.3.0
+BuildRequires:	pkgconfig
 BuildRequires:	pwlib-devel = 1.9.3
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
-BuildRequires:	gnome-doc-utils
-BuildRequires:	avahi-devel
-BuildRequires:	avahi-glib-devel
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
 Requires:	pwlib-sound
