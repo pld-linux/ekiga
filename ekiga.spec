@@ -1,12 +1,12 @@
 Summary:	SIP and H.323 Videoconferencing
 Summary(pl):	Program do telekonferencji w standardzie SIP oraz H.323
 Name:		ekiga
-Version:	1.99.1
+Version:	2.0.1
 Release:	0.1
 License:	GPL
 Group:		Applications/Communications
-Source0:	http://www.ekiga.org/downloads/beta2/sources/%{name}-%{version}.tar.gz
-# Source0-md5:	1468f6be7d577ccd48c91cfa13341772
+Source0:	http://www.ekiga.org/admin/downloads/latest/sources/sources/%{name}-%{version}.tar.gz
+# Source0-md5:	9f0a2bcce380677e38b23991320df171
 Patch0:		%{name}-desktop.patch
 URL:		http://www.ekiga.org/
 BuildRequires:	GConf2-devel >= 2.12.0
@@ -24,10 +24,10 @@ BuildRequires:	intltool >= 0.33
 BuildRequires:	libgnome-devel >= 2.12.0
 BuildRequires:	libgnomeui-devel >= 2.12.0
 BuildRequires:	libtool
-BuildRequires:	opal-devel = 2.1.3
+BuildRequires:	opal-devel >= 2.1.3
 BuildRequires:	openldap-devel >= 2.3.0
 BuildRequires:	pkgconfig
-BuildRequires:	pwlib-devel = 1.9.3
+BuildRequires:	pwlib-devel >= 1.9.3
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 Requires(post,postun):	scrollkeeper
