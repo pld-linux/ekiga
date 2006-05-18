@@ -2,7 +2,7 @@ Summary:	SIP and H.323 Videoconferencing
 Summary(pl):	Program do telekonferencji w standardzie SIP oraz H.323
 Name:		ekiga
 Version:	2.0.1
-Release:	0.2
+Release:	0.3
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://www.ekiga.org/admin/downloads/latest/sources/sources/%{name}-%{version}.tar.gz
@@ -15,7 +15,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	avahi-devel >= 0.6
 BuildRequires:	avahi-glib-devel >= 0.6
-BuildRequires:	dbus-glib-devel >= 0.36
+BuildRequires:	dbus-glib-devel >= 0.60
 BuildRequires:	evolution-data-server-devel >= 1.6.1
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.8.0
@@ -32,6 +32,7 @@ BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
+Requires:	dbus >= 0.60
 Requires:	pwlib-sound
 Obsoletes:	gnomemeeting
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -83,6 +84,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %gconf_schema_install ekiga.schemas
+%scrollkeeper_update_post
+%update_desktop_database_post
+
+%postun
+%scrollkeeper_update_postun
 
 %preun
 %gconf_schema_uninstall ekiga.schemas
@@ -93,6 +99,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_pixmapsdir}/*
 %{_desktopdir}/*.desktop
+%{_datadir}/dbus-1/services/*.service
+%{_omf_dest_dir}/%{name}
 %{_datadir}/sounds/%{name}
 %{_sysconfdir}/gconf/schemas/*
 %{_libdir}/bonobo/servers/*
