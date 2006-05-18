@@ -9,25 +9,25 @@ Source0:	http://www.ekiga.org/admin/downloads/latest/sources/sources/%{name}-%{v
 # Source0-md5:	9f0a2bcce380677e38b23991320df171
 Patch0:		%{name}-desktop.patch
 URL:		http://www.ekiga.org/
-BuildRequires:	GConf2-devel >= 2.12.0
+BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	SDL-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	avahi-devel >= 0.6
 BuildRequires:	avahi-glib-devel >= 0.6
 BuildRequires:	dbus-glib-devel >= 0.36
-BuildRequires:	evolution-data-server-devel >= 1.1.3
+BuildRequires:	evolution-data-server-devel >= 1.6.1
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gnome-doc-utils
 BuildRequires:	intltool >= 0.33
-BuildRequires:	libgnome-devel >= 2.12.0
-BuildRequires:	libgnomeui-devel >= 2.12.0
+BuildRequires:	libgnome-devel >= 2.14.0
+BuildRequires:	libgnomeui-devel >= 2.14.0
 BuildRequires:	libtool
-BuildRequires:	opal-devel >= 2.1.3
+BuildRequires:	opal-devel >= 2.2.1
 BuildRequires:	openldap-devel >= 2.3.0
 BuildRequires:	pkgconfig
-BuildRequires:	pwlib-devel >= 1.9.3
+BuildRequires:	pwlib-devel >= 1.10.0
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 Requires(post,postun):	scrollkeeper
