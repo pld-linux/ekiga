@@ -24,7 +24,7 @@ BuildRequires:	intltool >= 0.33
 BuildRequires:	libgnome-devel >= 2.14.0
 BuildRequires:	libgnomeui-devel >= 2.14.0
 BuildRequires:	libtool
-BuildRequires:	opal-devel >= 2.2.1
+BuildRequires:	opal-devel >= 2.2.1-2
 BuildRequires:	openldap-devel >= 2.3.0
 BuildRequires:	pkgconfig
 BuildRequires:	pwlib-devel = 1.10.1
@@ -36,7 +36,7 @@ Requires:	dbus >= 0.60
 Requires:	evolution-data-server >= 1.6.1
 Requires:	libgnome >= 2.14.0
 Requires:	libgnomeui >= 2.14.0
-Requires:	opal >= 2.2.1-2
+Requires:	opal = 2.2.2
 Requires:	pwlib-sound
 Obsoletes:	gnomemeeting
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
