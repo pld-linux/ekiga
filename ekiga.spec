@@ -8,6 +8,7 @@ Group:		Applications/Communications
 Source0:	http://www.ekiga.org/admin/downloads/latest/sources/sources/%{name}-%{version}.tar.gz
 # Source0-md5:	569e0f79ec018ca3e8f2979449dd6f0f
 Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-linguas.patch
 URL:		http://www.ekiga.org/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	SDL-devel
@@ -60,6 +61,7 @@ obrazem. Ekiga by³a poprzednio znana jako GnomeMeeting.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__gnome_doc_common}
@@ -78,8 +80,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name} --with-gnome
 
