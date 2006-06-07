@@ -1,0 +1,12 @@
+diff -ur ekiga-2.0.2-o/configure.in ekiga-2.0.2/configure.in
+--- ekiga-2.0.2-o/configure.in	2006-05-30 11:53:28.000000000 -0600
++++ ekiga-2.0.2/configure.in	2006-06-06 19:26:35.000000000 -0600
+@@ -527,7 +527,7 @@
+ dnl  Support for internationalization
+ dnl ########################################################################
+ AC_SUBST([CONFIG_STATUS_DEPENDENCIES],['$(top_srcdir)/po/LINGUAS'])
+-ALL_LINGUAS="`grep -v '^#' "$srcdir/po/LINGUAS"`"
++ALL_LINGUAS="`grep -v '^#' "$srcdir/po/LINGUAS" | xargs`"
+ 
+ GETTEXT_PACKAGE=AC_PACKAGE_NAME
+ AC_SUBST(GETTEXT_PACKAGE)
