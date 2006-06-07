@@ -24,7 +24,7 @@ BuildRequires:	intltool >= 0.33
 BuildRequires:	libgnome-devel >= 2.14.0
 BuildRequires:	libgnomeui-devel >= 2.14.0
 BuildRequires:	libtool
-BuildRequires:	opal-devel >= 2.2.1-2
+BuildRequires:	opal-devel = 2.2.2
 BuildRequires:	openldap-devel >= 2.3.0
 BuildRequires:	pkgconfig
 BuildRequires:	pwlib-devel = 1.10.1
