@@ -24,6 +24,7 @@ BuildRequires:	gnome-doc-utils
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libgnome-devel >= 2.14.0
 BuildRequires:	libgnomeui-devel >= 2.14.0
+BuildRequires:	libselinux-devel
 BuildRequires:	libtool
 BuildRequires:	opal-devel = 2.2.2
 BuildRequires:	openldap-devel >= 2.3.0
