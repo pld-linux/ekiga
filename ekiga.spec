@@ -1,14 +1,12 @@
 Summary:	SIP and H.323 Videoconferencing
 Summary(pl):	Program do telekonferencji w standardzie SIP oraz H.323
 Name:		ekiga
-Version:	2.0.2
+Version:	2.0.3
 Release:	1
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://www.ekiga.org/admin/downloads/latest/sources/sources/%{name}-%{version}.tar.gz
-# Source0-md5:	569e0f79ec018ca3e8f2979449dd6f0f
-Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-linguas.patch
+# Source0-md5:	5ad3458d73d65c6502c312ff0c430a7c
 URL:		http://www.ekiga.org/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	SDL-devel
@@ -26,10 +24,10 @@ BuildRequires:	libgnome-devel >= 2.14.0
 BuildRequires:	libgnomeui-devel >= 2.14.0
 BuildRequires:	libselinux-devel
 BuildRequires:	libtool
-BuildRequires:	opal-devel = 2.2.2
+BuildRequires:	opal-devel = 2.2.3
 BuildRequires:	openldap-devel >= 2.3.0
 BuildRequires:	pkgconfig
-BuildRequires:	pwlib-devel = 1.10.1
+BuildRequires:	pwlib-devel = 1.10.2
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 Requires(post,postun):	scrollkeeper
@@ -38,7 +36,7 @@ Requires:	dbus >= 0.60
 Requires:	evolution-data-server >= 1.6.1
 Requires:	libgnome >= 2.14.0
 Requires:	libgnomeui >= 2.14.0
-Requires:	opal = 2.2.2
+Requires:	opal = 2.2.3
 Requires:	pwlib-sound
 Obsoletes:	gnomemeeting
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -61,8 +59,7 @@ obrazem. Ekiga by³a poprzednio znana jako GnomeMeeting.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
+sed -i -e 's|Categories=GNOME;GTK;Network;Telephony;|Categories=GTK;GNOME;Network;InstantMessaging;|' ekiga.desktop.in.in
 
 %build
 %{__gnome_doc_common}
