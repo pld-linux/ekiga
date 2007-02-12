@@ -1,5 +1,5 @@
 Summary:	SIP and H.323 Videoconferencing
-Summary(pl.UTF-8):   Program do telekonferencji w standardzie SIP oraz H.323
+Summary(pl.UTF-8):	Program do telekonferencji w standardzie SIP oraz H.323
 Name:		ekiga
 Version:	2.0.4
 Release:	1
