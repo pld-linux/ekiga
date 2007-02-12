@@ -1,5 +1,5 @@
 Summary:	SIP and H.323 Videoconferencing
-Summary(pl):	Program do telekonferencji w standardzie SIP oraz H.323
+Summary(pl.UTF-8):   Program do telekonferencji w standardzie SIP oraz H.323
 Name:		ekiga
 Version:	2.0.4
 Release:	1
@@ -49,13 +49,13 @@ Ekiga can work with or without a webcam, and is able to create pure
 audio communications or traditionnal audio+video communications. Ekiga
 was fomerly known as GnomeMeeting.
 
-%description -l pl
+%description -l pl.UTF-8
 Ekiga jest programem przeznaczonym do wideokonferencji oraz telefonii
-internetowej zgodnej z protoko³ami SIP oraz H.323. Mo¿e ³±czyæ siê z
-ró¿nymi aplikacjami SIP lub H.323 w³±czaj±c w to specjalizowane
-urz±dzenia. Program Ekiga mo¿e pracowaæ z kamer± internetow±,
-zestawiaæ same po³±czenia g³osowe jak równie¿ tradycyjne z d¼wiêkiem i
-obrazem. Ekiga by³a poprzednio znana jako GnomeMeeting.
+internetowej zgodnej z protokoÅ‚ami SIP oraz H.323. MoÅ¼e Å‚Ä…czyÄ‡ siÄ™ z
+rÃ³Å¼nymi aplikacjami SIP lub H.323 wÅ‚Ä…czajÄ…c w to specjalizowane
+urzÄ…dzenia. Program Ekiga moÅ¼e pracowaÄ‡ z kamerÄ… internetowÄ…,
+zestawiaÄ‡ same poÅ‚Ä…czenia gÅ‚osowe jak rÃ³wnieÅ¼ tradycyjne z dÅºwiÄ™kiem i
+obrazem. Ekiga byÅ‚a poprzednio znana jako GnomeMeeting.
 
 %prep
 %setup -q
