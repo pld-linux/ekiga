@@ -70,7 +70,8 @@ sed -i -e 's|Categories=GNOME;GTK;Network;Telephony;|Categories=GTK;GNOME;Networ
 %{__automake}
 %configure \
 	--disable-schemas-install \
-	--enable-dbus
+	--enable-dbus \
+	--disable-scrollkeeper
 %{__make}
 
 %install
