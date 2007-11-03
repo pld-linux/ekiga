@@ -25,7 +25,7 @@ BuildRequires:	libgnomeui-devel >= 2.14.0
 BuildRequires:	libselinux-devel
 BuildRequires:	libtool
 BuildRequires:	opal-devel = 2.2.11
-BuildRequires:	openldap-devel >= 2.3.0
+BuildRequires:	openldap-devel >= 2.4.6
 BuildRequires:	pkgconfig
 BuildRequires:	pwlib-devel = 1.10.10
 BuildRequires:	rpmbuild(macros) >= 1.197
