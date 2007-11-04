@@ -2,7 +2,7 @@ Summary:	SIP and H.323 Videoconferencing
 Summary(pl.UTF-8):	Program do telekonferencji w standardzie SIP oraz H.323
 Name:		ekiga
 Version:	2.0.11
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/ekiga/2.0/%{name}-%{version}.tar.gz
@@ -39,6 +39,8 @@ Requires:	libgnomeui >= 2.14.0
 Requires:	opal = 2.2.11
 Requires:	pwlib-sound
 Obsoletes:	gnomemeeting
+# sr@Latn vs. sr@latin
+Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -81,6 +83,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
+	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 %find_lang %{name} --with-gnome
 
 %clean
