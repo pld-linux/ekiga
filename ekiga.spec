@@ -2,11 +2,12 @@ Summary:	SIP and H.323 Videoconferencing
 Summary(pl.UTF-8):	Program do telekonferencji w standardzie SIP oraz H.323
 Name:		ekiga
 Version:	3.0.1
-Release:	0.1
+Release:	0.2
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/ekiga/3.0/%{name}-%{version}.tar.gz
 # Source0-md5:	f7db69b21c6d1bdaaef4f221df0de015
+Patch0:		%{name}-shell.patch
 URL:		http://www.ekiga.org/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	SDL-devel
@@ -23,21 +24,22 @@ BuildRequires:	intltool >= 0.33
 BuildRequires:	libgnome-devel >= 2.14.0
 BuildRequires:	libgnomeui-devel >= 2.14.0
 BuildRequires:	libselinux-devel
+BuildRequires:	libsigc++-devel
 BuildRequires:	libtool
-BuildRequires:	opal-devel = 2.2.11
+BuildRequires:	opal-devel >= 3.4.2
 BuildRequires:	openldap-devel >= 2.4.6
 BuildRequires:	pkgconfig
-BuildRequires:	pwlib-devel = 1.10.10
+BuildRequires:	ptlib-devel >= 2.4.2
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
+BuildRequires:	xorg-lib-libXv-devel
 Requires(post,postun):	scrollkeeper
+Requires(post,postun):	hicolor-icon-theme
 Requires(post,preun):	GConf2 >= 2.14.0
 Requires:	dbus >= 0.60
 Requires:	evolution-data-server >= 1.6.1
 Requires:	libgnome >= 2.14.0
 Requires:	libgnomeui >= 2.14.0
-Requires:	opal = 2.2.11
-Requires:	pwlib-sound
 Obsoletes:	gnomemeeting
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
@@ -61,6 +63,7 @@ obrazem. Ekiga była poprzednio znana jako GnomeMeeting.
 
 %prep
 %setup -q
+%patch0 -p1
 sed -i -e 's|Categories=GNOME;GTK;Network;Telephony;|Categories=GTK;GNOME;Network;InstantMessaging;|' ekiga.desktop.in.in
 
 %build
@@ -94,9 +97,11 @@ rm -rf $RPM_BUILD_ROOT
 %gconf_schema_install ekiga.schemas
 %scrollkeeper_update_post
 %update_desktop_database_post
+%update_icon_cache hicolor
 
 %postun
 %scrollkeeper_update_postun
+%update_icon_cache hicolor
 
 %preun
 %gconf_schema_uninstall ekiga.schemas
@@ -110,6 +115,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/dbus-1/services/*.service
 %{_omf_dest_dir}/%{name}
 %{_datadir}/sounds/%{name}
+%{_iconsdir}/hicolor/*/*/ekiga.png
 %{_sysconfdir}/gconf/schemas/*
-%{_libdir}/bonobo/servers/*
 %{_mandir}/*/*
