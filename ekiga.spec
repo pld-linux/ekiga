@@ -1,3 +1,6 @@
+# TODO:
+#	- works only with ptlib-sound-alsa
+#
 Summary:	SIP and H.323 Videoconferencing
 Summary(pl.UTF-8):	Program do telekonferencji w standardzie SIP oraz H.323
 Name:		ekiga
@@ -40,6 +43,7 @@ Requires:	dbus >= 0.60
 Requires:	evolution-data-server >= 1.6.1
 Requires:	libgnome >= 2.14.0
 Requires:	libgnomeui >= 2.14.0
+Requires:	ptlib-sound
 Obsoletes:	gnomemeeting
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
