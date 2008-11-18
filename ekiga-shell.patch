@@ -1,0 +1,11 @@
+--- ekiga-3.0.1/src/Makefile.am.orig	2008-11-05 02:58:20.829222623 +0100
++++ ekiga-3.0.1/src/Makefile.am	2008-11-05 02:59:05.326164449 +0100
+@@ -171,7 +171,7 @@
+             echo "#define EKIGA_REVISION $(SVN_REVISION)" > revision.h; \
+           fi \
+         else \
+-          if !(test -e "./revision.h"); then\
++          if [ ! -e "./revision.h" ]; then\
+             echo "#define EKIGA_REVISION \"unknown\"" > revision.h; \
+           fi \
+         fi)
