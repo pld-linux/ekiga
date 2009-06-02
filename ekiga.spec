@@ -1,6 +1,3 @@
-# TODO:
-#	- works only with ptlib-sound-alsa
-#
 Summary:	SIP and H.323 Videoconferencing
 Summary(pl.UTF-8):	Program do telekonferencji w standardzie SIP oraz H.323
 Name:		ekiga
