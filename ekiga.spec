@@ -16,6 +16,7 @@ BuildRequires:	automake
 BuildRequires:	avahi-devel >= 0.6
 BuildRequires:	avahi-glib-devel >= 0.6
 BuildRequires:	dbus-glib-devel >= 0.60
+BuildRequires:	docbook-dtd412-xml
 BuildRequires:	evolution-data-server-devel >= 1.6.1
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.8.0
@@ -32,9 +33,12 @@ BuildRequires:	pkgconfig
 BuildRequires:	ptlib-devel >= 2.6.5
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
+BuildRequires:	speex-devel
+BuildRequires:	srtp-devel
+BuildRequires:	unixODBC-devel
 BuildRequires:	xorg-lib-libXv-devel
-Requires(post,postun):	scrollkeeper
 Requires(post,postun):	hicolor-icon-theme
+Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2 >= 2.14.0
 Requires:	dbus >= 0.60
 Requires:	evolution-data-server >= 1.6.1
