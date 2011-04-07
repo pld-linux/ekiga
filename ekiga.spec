@@ -8,6 +8,7 @@ Group:		Applications/Communications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/ekiga/3.2/%{name}-%{version}.tar.gz
 # Source0-md5:	bdc787550c4cf5acf873788f5ea153ba
 Patch0:		%{name}-shell.patch
+Patch1:		%{name}-libnotify.patch
 URL:		http://www.ekiga.org/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	SDL-devel
@@ -70,6 +71,7 @@ obrazem. Ekiga była poprzednio znana jako GnomeMeeting.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 sed -i -e 's|Categories=GNOME;GTK;Network;Telephony;|Categories=GTK;GNOME;Network;InstantMessaging;|' ekiga.desktop.in.in
 
 %build
