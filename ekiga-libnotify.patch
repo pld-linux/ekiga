@@ -14,8 +14,8 @@
    g_signal_connect (notif, "closed",
  		    G_CALLBACK (on_notif_closed), notification.get ());
 --- ekiga-3.2.7/src/gui/main.cpp~	2010-05-30 23:58:01.000000000 +0200
-+++ ekiga-3.2.7/src/gui/main.cpp	2011-04-07 13:23:45.542858431 +0200
-@@ -2820,7 +2820,11 @@
++++ ekiga-3.2.7/src/gui/main.cpp	2011-04-07 13:33:09.966210734 +0200
+@@ -2820,12 +2820,18 @@
  
    body = g_strdup_printf ("%s\n%s\n%s", uri, app, account);
    
@@ -28,3 +28,10 @@
    notify_notification_add_action (notify, "accept", _("Accept"), notify_action_cb, mw, NULL);
    notify_notification_add_action (notify, "reject", _("Reject"), notify_action_cb, mw, NULL);
    notify_notification_set_timeout (notify, NOTIFY_EXPIRES_NEVER);
+   notify_notification_set_urgency (notify, NOTIFY_URGENCY_CRITICAL);
++#if !defined(NOTIFY_VERSION_MINOR) || (NOTIFY_VERSION_MAJOR == 0 && NOTIFY_VERSION_MINOR < 7)
+   notify_notification_attach_to_status_icon (notify, statusicon);
++#endif
+   if (!notify_notification_show (notify, NULL)) {
+     ekiga_main_window_incoming_call_dialog_show (mw, call);
+   }
