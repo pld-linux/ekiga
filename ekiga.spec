@@ -1,12 +1,12 @@
 Summary:	SIP and H.323 Videoconferencing
 Summary(pl.UTF-8):	Program do telekonferencji w standardzie SIP oraz H.323
 Name:		ekiga
-Version:	3.2.7
-Release:	5
+Version:	3.3.0
+Release:	0.1
 License:	GPL
 Group:		Applications/Communications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/ekiga/3.2/%{name}-%{version}.tar.gz
-# Source0-md5:	bdc787550c4cf5acf873788f5ea153ba
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/ekiga/3.3/%{name}-%{version}.tar.gz
+# Source0-md5:	c3d5a5d4bc493c1a80a5383b2d0832bc
 Patch0:		%{name}-shell.patch
 Patch1:		%{name}-libnotify.patch
 URL:		http://www.ekiga.org/
@@ -28,7 +28,7 @@ BuildRequires:	libgnomeui-devel >= 2.14.0
 BuildRequires:	libselinux-devel
 BuildRequires:	libsigc++-devel
 BuildRequires:	libtool
-BuildRequires:	opal-devel >= 3.4.2
+BuildRequires:	opal-devel >= 3.8.3
 BuildRequires:	openldap-devel >= 2.4.6
 BuildRequires:	pkgconfig
 BuildRequires:	ptlib-devel >= 2.6.7
@@ -71,7 +71,7 @@ obrazem. Ekiga była poprzednio znana jako GnomeMeeting.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
+#%patch1 -p1
 sed -i -e 's|Categories=GNOME;GTK;Network;Telephony;|Categories=GTK;GNOME;Network;InstantMessaging;|' ekiga.desktop.in.in
 
 %build
