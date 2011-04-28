@@ -78,7 +78,7 @@ sed -i -e 's|Categories=GNOME;GTK;Network;Telephony;|Categories=GTK;GNOME;Networ
 %{__gnome_doc_common}
 %{__libtoolize}
 %{__intltoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
@@ -96,6 +96,10 @@ rm -rf $RPM_BUILD_ROOT
 
 [ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
 	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
+
+rm $RPM_BUILD_ROOT%{_libdir}/%{name}/%{version}/*.la
+rm $RPM_BUILD_ROOT%{_libdir}/%{name}/%{version}/plugins/*.la
+
 %find_lang %{name} --with-gnome
 
 %clean
@@ -125,4 +129,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/sounds/%{name}
 %{_iconsdir}/hicolor/*/*/ekiga.png
 %{_sysconfdir}/gconf/schemas/*
+%dir %{_libdir}/%{name}
+%dir %{_libdir}/%{name}/%{version}
+%attr(755,root,root) %{_libdir}/%{name}/%{version}/libekiga.so
+%dir %{_libdir}/%{name}/%{version}/plugins
+%attr(755,root,root) %{_libdir}/%{name}/%{version}/plugins/*.so
 %{_mandir}/*/*
