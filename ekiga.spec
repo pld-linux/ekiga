@@ -1,8 +1,13 @@
+#
+# WARNING: Ekiga won't work without proper ptlib and opal versions,
+#	after changing any of these Ekiga needs testing, not only recompiling
+#	Recommended versions: http://wiki.ekiga.org/index.php/Download_Ekiga_sources
+#
 Summary:	SIP and H.323 Videoconferencing
 Summary(pl.UTF-8):	Program do telekonferencji w standardzie SIP oraz H.323
 Name:		ekiga
 Version:	3.2.7
-Release:	5
+Release:	6
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/ekiga/3.2/%{name}-%{version}.tar.gz
@@ -31,7 +36,7 @@ BuildRequires:	libtool
 BuildRequires:	opal-devel >= 3.4.2
 BuildRequires:	openldap-devel >= 2.4.6
 BuildRequires:	pkgconfig
-BuildRequires:	ptlib-devel >= 2.6.7
+BuildRequires:	ptlib-devel >= 1:2.8.3
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 BuildRequires:	speex-devel
