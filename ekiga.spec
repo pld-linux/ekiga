@@ -6,15 +6,14 @@
 Summary:	SIP and H.323 Videoconferencing
 Summary(pl.UTF-8):	Program do telekonferencji w standardzie SIP oraz H.323
 Name:		ekiga
-Version:	3.2.7
-Release:	9
+Version:	3.9.90
+Release:	1
 License:	GPL
 Group:		Applications/Communications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/ekiga/3.2/%{name}-%{version}.tar.gz
-# Source0-md5:	bdc787550c4cf5acf873788f5ea153ba
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/ekiga/3.9/%{name}-%{version}.tar.xz
+# Source0-md5:	800be31eef542e06307691c59942595a
 Patch0:		%{name}-shell.patch
-Patch1:		%{name}-libnotify.patch
-Patch2:		%{name}-gcc47.patch
+Patch1:		format-security.patch
 URL:		http://www.ekiga.org/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	SDL-devel
@@ -34,10 +33,10 @@ BuildRequires:	libgnomeui-devel >= 2.14.0
 BuildRequires:	libselinux-devel
 BuildRequires:	libsigc++-devel
 BuildRequires:	libtool
-BuildRequires:	opal-devel >= 3.4.2
+BuildRequires:	opal-devel >= 3.10.7
 BuildRequires:	openldap-devel >= 2.4.6
 BuildRequires:	pkgconfig
-BuildRequires:	ptlib-devel >= 1:2.8.3
+BuildRequires:	ptlib-devel >= 1:2.10.7
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 BuildRequires:	speex-devel
@@ -78,14 +77,13 @@ obrazem. Ekiga była poprzednio znana jako GnomeMeeting.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 sed -i -e 's|Categories=GNOME;GTK;Network;Telephony;|Categories=GTK;GNOME;Network;InstantMessaging;|' ekiga.desktop.in.in
 
 %build
 %{__gnome_doc_common}
 %{__libtoolize}
 %{__intltoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
@@ -124,7 +122,15 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO FAQ
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/ekiga
+%attr(755,root,root) %{_bindir}/ekiga-config-tool
+%attr(755,root,root) %{_bindir}/ekiga-helper
+%dir %{_libdir}/%{name}
+%dir %{_libdir}/%{name}/%{version}
+%dir %{_libdir}/%{name}/%{version}/plugins
+%attr(755,root,root) %{_libdir}/%{name}/%{version}/libekiga.so
+%attr(755,root,root) %{_libdir}/%{name}/%{version}/plugins/libgmevolution.so
+%attr(755,root,root) %{_libdir}/%{name}/%{version}/plugins/libgmldap.so
 %{_pixmapsdir}/*
 %{_desktopdir}/*.desktop
 %{_datadir}/dbus-1/services/*.service
@@ -132,4 +138,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/sounds/%{name}
 %{_iconsdir}/hicolor/*/*/ekiga.png
 %{_sysconfdir}/gconf/schemas/*
-%{_mandir}/*/*
+%{_mandir}/man1/ekiga.1*

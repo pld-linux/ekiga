@@ -1,0 +1,11 @@
+--- /home/users/baggins/devel/PLD/rpm/BUILD/ekiga-3.9.90/lib/engine/gui/gtk-frontend/call-window.cpp~	2012-08-21 18:27:35.000000000 +0200
++++ /home/users/baggins/devel/PLD/rpm/BUILD/ekiga-3.9.90/lib/engine/gui/gtk-frontend/call-window.cpp	2012-10-16 23:05:50.198165887 +0200
+@@ -1573,7 +1573,7 @@
+     msg = g_strdup_printf (_("A:%.1f/%.1f V:%.1f/%.1f FPS:%d/%d"),
+                            ta, ra, tv, rv, tfps, rfps);
+ 
+-  gm_statusbar_push_message (GM_STATUSBAR (cw->priv->statusbar), msg);
++  gm_statusbar_push_message (GM_STATUSBAR (cw->priv->statusbar), "%s", msg);
+   g_free (msg);
+ }
+ 
