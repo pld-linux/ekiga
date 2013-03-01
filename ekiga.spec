@@ -6,14 +6,13 @@
 Summary:	SIP and H.323 Videoconferencing
 Summary(pl.UTF-8):	Program do telekonferencji w standardzie SIP oraz H.323
 Name:		ekiga
-Version:	3.9.90
-Release:	2
+Version:	4.0.1
+Release:	1
 License:	GPL
 Group:		Applications/Communications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/ekiga/3.9/%{name}-%{version}.tar.xz
-# Source0-md5:	800be31eef542e06307691c59942595a
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/ekiga/4.0/%{name}-%{version}.tar.xz
+# Source0-md5:	704ba532a8e3e0b5e3e2971dd2db39e4
 Patch0:		%{name}-shell.patch
-Patch1:		format-security.patch
 URL:		http://www.ekiga.org/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	SDL-devel
@@ -33,10 +32,10 @@ BuildRequires:	libgnomeui-devel >= 2.14.0
 BuildRequires:	libselinux-devel
 BuildRequires:	libsigc++-devel
 BuildRequires:	libtool
-BuildRequires:	opal-devel >= 3.10.7
+BuildRequires:	opal-devel >= 3.10.10
 BuildRequires:	openldap-devel >= 2.4.6
 BuildRequires:	pkgconfig
-BuildRequires:	ptlib-devel >= 1:2.10.7
+BuildRequires:	ptlib-devel >= 1:2.10.10
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 BuildRequires:	speex-devel
@@ -76,7 +75,6 @@ obrazem. Ekiga była poprzednio znana jako GnomeMeeting.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 sed -i -e 's|Categories=GNOME;GTK;Network;Telephony;|Categories=GTK;GNOME;Network;InstantMessaging;|' ekiga.desktop.in.in
 
 %build
