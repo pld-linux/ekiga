@@ -129,6 +129,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/%{name}/%{version}/libekiga.so
 %attr(755,root,root) %{_libdir}/%{name}/%{version}/plugins/libgmevolution.so
 %attr(755,root,root) %{_libdir}/%{name}/%{version}/plugins/libgmldap.so
+%attr(755,root,root) %{_libdir}/%{name}/%{version}/plugins/libgmlibnotify.so
 %{_pixmapsdir}/*
 %{_desktopdir}/*.desktop
 %{_datadir}/dbus-1/services/*.service
