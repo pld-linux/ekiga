@@ -23,7 +23,7 @@ BuildRequires:	avahi-glib-devel >= 0.6
 BuildRequires:	dbus-glib-devel >= 0.60
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	evolution-data-server-devel >= 1.6.1
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gnome-doc-utils
 BuildRequires:	intltool >= 0.33
