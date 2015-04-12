@@ -1,0 +1,11 @@
+--- ekiga-4.0.1/configure.ac~	2013-02-20 21:18:09.000000000 +0100
++++ ekiga-4.0.1/configure.ac	2015-04-12 12:31:55.840637728 +0200
+@@ -90,7 +90,7 @@
+     gm_platform="solaris"
+     ;;
+ 
+-  linux-gnulp | linux-gnu | linux-gnueabi* | linux | Linux)
++  linux-gnulp | linux-gnu | linux-gnux32 | linux-gnueabi* | linux | Linux)
+     gm_platform="linux"
+     ;;
+ 
