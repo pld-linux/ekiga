@@ -81,7 +81,6 @@ obrazem. Ekiga była poprzednio znana jako GnomeMeeting.
 sed -i -e 's|Categories=GNOME;GTK;Network;Telephony;|Categories=GTK;GNOME;Network;InstantMessaging;|' ekiga.desktop.in.in
 
 %build
-%{__gnome_doc_common}
 %{__libtoolize}
 %{__intltoolize}
 %{__aclocal} -I m4
