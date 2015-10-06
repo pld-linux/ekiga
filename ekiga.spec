@@ -7,7 +7,7 @@ Summary:	SIP and H.323 Videoconferencing
 Summary(pl.UTF-8):	Program do telekonferencji w standardzie SIP oraz H.323
 Name:		ekiga
 Version:	4.0.1
-Release:	12
+Release:	13
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/ekiga/4.0/%{name}-%{version}.tar.xz
