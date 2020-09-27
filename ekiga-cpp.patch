@@ -1,0 +1,12 @@
+--- ekiga-4.0.1/lib/engine/framework/services.cpp.orig	2013-02-18 22:36:51.000000000 +0100
++++ ekiga-4.0.1/lib/engine/framework/services.cpp	2020-09-27 15:14:11.646578192 +0200
+@@ -39,9 +39,7 @@
+  */
+ #define DEBUG 0
+ 
+-#if DEBUG
+ #include <iostream>
+-#endif
+ 
+ #include "services.h"
+ 

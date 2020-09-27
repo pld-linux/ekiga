@@ -7,8 +7,8 @@ Summary:	SIP and H.323 Videoconferencing
 Summary(pl.UTF-8):	Program do telekonferencji w standardzie SIP oraz H.323
 Name:		ekiga
 Version:	4.0.1
-Release:	21
-License:	GPL
+Release:	22
+License:	GPL v2+
 Group:		Applications/Communications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/ekiga/4.0/%{name}-%{version}.tar.xz
 # Source0-md5:	704ba532a8e3e0b5e3e2971dd2db39e4
@@ -16,26 +16,34 @@ Patch0:		%{name}-shell.patch
 Patch1:		x32.patch
 Patch2:		libresolv.patch
 Patch3:		boost-signals2.patch
-URL:		http://www.ekiga.org/
+Patch4:		%{name}-cpp.patch
+URL:		https://www.ekiga.org/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	SDL-devel
-BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	autoconf >= 2.53
+BuildRequires:	automake >= 1:1.11
 BuildRequires:	avahi-devel >= 0.6
 BuildRequires:	avahi-glib-devel >= 0.6
-BuildRequires:	boost-devel
+BuildRequires:	boost-devel >= 1.53
+BuildRequires:	cyrus-sasl-devel >= 2
+BuildRequires:	dbus-devel >= 0.60
 BuildRequires:	dbus-glib-devel >= 0.60
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	evolution-data-server-devel >= 1.6.1
 BuildRequires:	gettext-tools
+BuildRequires:	glib2-devel >= 1:2.24.0
 BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gnome-doc-utils
-BuildRequires:	intltool >= 0.33
+BuildRequires:	gnome-icon-theme >= 3.0.0
+BuildRequires:	gtk+2-devel >= 2:2.20.0
+BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libgnome-devel >= 2.14.0
 BuildRequires:	libgnomeui-devel >= 2.14.0
+BuildRequires:	libnotify-devel
 BuildRequires:	libselinux-devel
 BuildRequires:	libsigc++-devel
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2
+BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	opal-devel >= 3.10.10
 BuildRequires:	openldap-devel >= 2.4.6
 BuildRequires:	pkgconfig
@@ -52,6 +60,9 @@ Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2 >= 2.14.0
 Requires:	dbus >= 0.60
 Requires:	evolution-data-server >= 1.6.1
+Requires:	glib2 >= 1:2.24.0
+Requires:	gnome-icon-theme >= 3.0.0
+Requires:	gtk+2 >= 2:2.20.0
 Requires:	libgnome >= 2.14.0
 Requires:	libgnomeui >= 2.14.0
 Requires:	ptlib-sound
@@ -82,6 +93,7 @@ obrazem. Ekiga była poprzednio znana jako GnomeMeeting.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 sed -i -e 's|Categories=GNOME;GTK;Network;Telephony;|Categories=GTK;GNOME;Network;InstantMessaging;|' ekiga.desktop.in.in
 
 %build
@@ -93,9 +105,11 @@ sed -i -e 's|Categories=GNOME;GTK;Network;Telephony;|Categories=GTK;GNOME;Networ
 %{__automake}
 %configure \
 	--with-boost-libdir=%{_libdir} \
-	--disable-schemas-install \
 	--enable-dbus \
-	--disable-scrollkeeper
+	--disable-schemas-install \
+	--disable-scrollkeeper \
+	--disable-silent-rules
+
 %{__make}
 
 %install
@@ -104,8 +118,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
-	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/%{name}/%{version}/libekiga.la \
+	$RPM_BUILD_ROOT%{_libdir}/%{name}/%{version}/plugins/lib*.la
+
 %find_lang %{name} --with-gnome
 
 %clean
@@ -137,11 +152,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/%{name}/%{version}/plugins/libgmevolution.so
 %attr(755,root,root) %{_libdir}/%{name}/%{version}/plugins/libgmldap.so
 %attr(755,root,root) %{_libdir}/%{name}/%{version}/plugins/libgmlibnotify.so
-%{_pixmapsdir}/*
-%{_desktopdir}/*.desktop
-%{_datadir}/dbus-1/services/*.service
+%{_pixmapsdir}/ekiga
+%{_desktopdir}/ekiga.desktop
+%{_datadir}/dbus-1/services/org.ekiga.Ekiga.service
+%{_datadir}/dbus-1/services/org.ekiga.Helper.service
 %{_omf_dest_dir}/%{name}
 %{_datadir}/sounds/%{name}
-%{_iconsdir}/hicolor/*/*/ekiga.png
-%{_sysconfdir}/gconf/schemas/*
+%{_iconsdir}/hicolor/*x*/apps/ekiga.png
+%{_sysconfdir}/gconf/schemas/ekiga.schemas
 %{_mandir}/man1/ekiga.1*
